@@ -46,7 +46,7 @@ window._deleteDoc=async function(col,id){await deleteDoc(doc(db,col,id));};
 // Load settings
 getDoc(doc(db,"appSettings","ownerInfo")).then(d=>{if(d.exists())window._ownerName=d.data().name||"Owner";}).catch(()=>{});
 getDoc(doc(db,"appSettings","prevStock")).then(d=>{if(d.exists())window._prevStock=d.data();}).catch(()=>{});
-getDoc(doc(db,"appSettings","pins")).then(d=>{
+Promise.race([getDoc(doc(db,"appSettings","pins")), new Promise((r,j)=>setTimeout(()=>j(),5000))]).then(d=>{
   if(d.exists()){
     window._operationalHeadPin=String(d.data().operationalHeadPin||"").trim();
     window._ownerPin=String(d.data().ownerPin||"").trim();
@@ -148,7 +148,7 @@ window._bankData={openingBalance:0,balance:0,fdAmount:0,fdInterest:0};
 window._operationalHeadPin="";
 window._ownerPin="";
 window._viewerPin="";
-window._pinLoaded=false;
+window._pinLoaded=true;
 window._fbReady=false;
 window._dayEdited=false;
 
