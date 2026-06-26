@@ -266,7 +266,7 @@ function buildLogin(){
       `<div class="card">
         <div style="font-size:12px;color:#00bfff;font-weight:800;margin-bottom:10px;">🔑 OPERATIONAL HEAD</div>
         <div style="font-size:11px;color:#5a8aaa;margin-bottom:10px;">Shivaraju G D - Full Control</div>
-        <input type="password" id="opheadPin" maxlength="4" placeholder="PIN" class="inp" onkeydown="if(event.key==='Enter')doLogin('ophead')"/>
+        <input type="password" id="opheadPin" maxlength="6" placeholder="PIN" class="inp" onkeydown="if(event.key==='Enter')doLogin('ophead')"/>
         <button onclick="doLogin('ophead')" class="btn" style="background:#00bfff;color:#000;margin-top:8px;font-weight:800;">Login</button>
         <div id="opheadErr" style="font-size:11px;color:#ff4d4d;text-align:center;margin-top:6px;min-height:16px;"></div>
       </div>
@@ -275,7 +275,7 @@ function buildLogin(){
       <div class="card">
         <div style="font-size:12px;color:#00e676;font-weight:800;margin-bottom:10px;">👑 OWNER</div>
         <div style="font-size:11px;color:#5a8aaa;margin-bottom:10px;">Dr. G Parameshwara - View Only</div>
-        <input type="password" id="ownerPin" maxlength="4" placeholder="PIN" class="inp" onkeydown="if(event.key==='Enter')doLogin('owner')"/>
+        <input type="password" id="ownerPin" maxlength="6" placeholder="PIN" class="inp" onkeydown="if(event.key==='Enter')doLogin('owner')"/>
         <button onclick="doLogin('owner')" class="btn" style="background:#00e676;color:#000;margin-top:8px;font-weight:800;">Login</button>
         <div id="ownerErr" style="font-size:11px;color:#ff4d4d;text-align:center;margin-top:6px;min-height:16px;"></div>
       </div>
@@ -288,7 +288,7 @@ function buildLogin(){
           <option value="">-- Select Your Name --</option>
           ${(window._staffCodes||[]).filter(c=>c.active).map(c=>'<option value="'+c.id+'">'+c.name+' ('+c.role+')</option>').join('')}
         </select>
-        <input type="password" id="staffCode" maxlength="4" placeholder="Your Code" class="inp" style="margin-top:8px;" onkeydown="if(event.key==='Enter')doLogin('staff')"/>
+        <input type="password" id="staffCode" maxlength="6" placeholder="Your Code" class="inp" style="margin-top:8px;" onkeydown="if(event.key==='Enter')doLogin('staff')"/>
         <button onclick="doLogin('staff')" class="btn" style="background:#ff9999;color:#000;margin-top:8px;font-weight:800;">Login</button>
         <div id="staffErr" style="font-size:11px;color:#ff4d4d;text-align:center;margin-top:6px;min-height:16px;"></div>
       </div>`}
