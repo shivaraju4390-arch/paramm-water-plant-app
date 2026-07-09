@@ -33,7 +33,7 @@ input,select,textarea,button{font-family:inherit;}
 import{initializeApp}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
 import{getFirestore,collection,doc,setDoc,getDoc,getDocs,onSnapshot,deleteDoc,updateDoc}from"https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const cfg={apiKey:"AIzaSyA-Ru0oC1rnRpTU2MIM8FlZUm8k8C7BRGs",authDomain:"paramm-65bce.firebaseapp.com",projectId:"paramm-65bce",storageBucket:"paramm-65bce.firebasestorage.app",messagingSenderId:"368141466363",appId:"1:368141466363:web:b42d8cbad866ae207b8e5e"};
+const cfg={apiKey:"AIzaSyBPB4muPKS51eHHPoQU2vyKMBpOSA41oZo",authDomain:"paramm-water-plant.firebaseapp.com",projectId:"paramm-water-plant",storageBucket:"paramm-water-plant.firebasestorage.app",messagingSenderId:"418538383487",appId:"1:418538383487:web:c58a498baacbc790e6b74a"};
 const app=initializeApp(cfg);
 const db=getFirestore(app);
 window._db=db;
@@ -47,7 +47,7 @@ window._deleteDoc=async function(col,id){await deleteDoc(doc(db,col,id));};
 getDoc(doc(db,"appSettings","ownerInfo")).then(d=>{if(d.exists())window._ownerName=d.data().name||"Owner";}).catch(()=>{});
 getDoc(doc(db,"appSettings","prevStock")).then(d=>{if(d.exists())window._prevStock=d.data();}).catch(()=>{});
 getDoc(doc(db,"appSettings","pins")).then(d=>{
-  if(d.exists()){window._ownerPin=String(d.data().ownerPin||"").trim();window._viewerPin=String(d.data().viewerPin||"").trim();}
+  if(d.exists()){window._ownerPin=String(d.data().ownerPin||d.data().operationalHeadPin||"").trim();window._viewerPin=String(d.data().viewerPin||"").trim();}
   else{window._ownerPin="";window._viewerPin="";}
   window._pinLoaded=true;
   if(window._onPinLoaded)window._onPinLoaded();
